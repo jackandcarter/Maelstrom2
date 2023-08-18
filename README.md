@@ -10,12 +10,14 @@ such as Super Novas, New Gamma Ray bursts events, Black holes, and X/times score
 Features near completeion:
 
 Canisters - these hold ammo upgrades much like the original, plus shield refill.
+
 Enemy Logic - Scripts are finished to handle the three types of ET enemy Craft logic.
+
 Player Mechanics - Scripts are nearly finished to handle respawn, location, and status updates.
 
-The scripts in the repo are about 90% finished with some missing logic for future mechanics.
+The scripts are about 90% finished with some missing logic for future mechanics and some animations which haven't been created yet.
 
-Features not worked on yet:
+Features waiting to be worked on:
 Settings UI panel, though it exists it is not finsihed and has zero logic written.
 Animations
 Sprites
