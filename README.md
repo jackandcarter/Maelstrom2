@@ -34,3 +34,22 @@ All contributors to the project development will be credited in the final releas
 the next few months or faster if I can get game art finished faster.
 
 This will be an open project to welcome all developers who hold a special place in their hears for the original Maelstrom game.
+
+Definition of of finished files:
+Asteroid.cs - Handles asteroid movements, spawning increase per wave, and wrap code for screen edge wrapping.
+Bullet.cs - Handles all ammo logic for bullet speed, distance, and friendly/enemy fire logic.
+Comet.cs - Handles comet logic including chance of spawn, comet duration, and comet colider logic.
+ETCraftEnemy.cs - Handles movement for Purple, Green, and new Blue ET enemy craft, disables screen wrap logic on this object so they can pass through wave in defined pattern.
+GameManager.cs - This file handles most of the game logic interacitons between prefabs and UI elements and their objects.
+PlayerController.cs - Handles input logic, player movement, thrust, shield logic, and state updates for powerups, and score saving.
+PowerUp.cs - Handles all power up logic for long range, repeater, and spreader logic including distance and rate of fire. Also masks canister object to include random powerup.
+SaveMeEvent.cs - This is the logic for stranded ship spawn rate, position, and animations as well as on player collision logic. Extra Life modifier logic.
+SuperNovaEvent.cs - This handles the supernova logic, screen shake logic, and object fling logic for when the explosion goes off, also has new mechanic logic.
+
+
+Old scripts (do not use)
+WaveEndManager.cs - This is broken and no longer needed as wave logic is included in the finished GameManager.cs script.
+StartScreenManager.cs - This is a different approach for logic on the start screen and UI menu elements. It is not needed as this is included in the Scene Game Manager script.
+SettingsManager.cs - May not be used, logic to bring up settings specific to Mac intel and ARM builds. Not finished.
+HighScoreManager.cs - This is broken and it's updated code is now part of PlayerController.cs script.
+GameManager.cs - The first script build of the game manager object, this is very broken and any usable code is brought to the revised version.
