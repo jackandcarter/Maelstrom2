@@ -33,7 +33,7 @@ tangable enough to put up here without a full explaination of the game objects a
 All contributors to the project development will be credited in the final release. Currently A development build is in the works and a release can be expected within
 the next few months or faster if I can get game art finished faster.
 
-This will be an open project to welcome all developers who hold a special place in their hears for the original Maelstrom game.
+This will be an open project to welcome all developers who hold a special place in their hearts for the original Maelstrom game.
 
 Definition of of finished files:
 <br>
