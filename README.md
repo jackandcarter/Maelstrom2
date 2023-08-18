@@ -1,6 +1,6 @@
 # Maelstrom2
 
-This project is dedicated to the remake of classic MacOS game Maelstrom by Ambrosia Software. 
+This project is dedicated to the development of Maelstrom2, inspired by the classic MacOS game Maelstrom by Ambrosia Software. 
 Builds are planned for MacOS x86 and ARM, along with Windows and eventually iOS. The game is being developed using Unity Game Engine and will feature updated graphics, smoother gameplay mechanics and transitions, and many new game elements inspired by the original game.
 
 There are many things sill needing to be finished, including animation logic, textures and UI images, Sprites, and some extra scripting for some game events
