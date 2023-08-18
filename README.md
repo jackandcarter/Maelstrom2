@@ -7,7 +7,7 @@ There are many things sill needing to be finished, including animation logic, te
 such as Super Novas, New Gamma Ray bursts events, Black holes, and X/times score multplier coins.
 
 
-Features near completeion:
+Features near completion:
 
 Canisters - these hold ammo upgrades much like the original, plus shield refill.
 
