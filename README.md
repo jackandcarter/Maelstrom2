@@ -20,6 +20,9 @@ Animations
 Sprites
 UI design
 
+As of right now I am only including the scripts for people to disect and pick apart, I will add a build folder with the project's assests
+once the project is easier to maintain.
+
 The project is still in it's infancy but is being constantly worked on by myself. Feel free to modify these scripts and report back if you wish.
 If you would like to help contribute to the project I am always looking for help. I can give the full project build files per request, but as of right now they are not 
 tangable enough to put up here without a full explaination of the game objects and their structure within Unity.
