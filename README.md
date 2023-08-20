@@ -7,63 +7,71 @@ There are many things sill needing to be finished, including animation logic, te
 such as Super Novas, New Gamma Ray bursts events, Black holes, and X/times score multplier coins.
 
 
-Features near completion:
+The Revision 1 Scripts are fully functional game object logic with placeholders for addition features to be added later.
 
-Canisters - these hold ammo upgrades much like the original, plus shield refill.
+Features currently being worked on:
+Settings UI panel - though it exists it is not finsihed and has zero logic written.
+Animations for gameplay background
+Sprites - Sprites for Asteroids, Player Ship, and Bullets are complete, still need sprites for enemies and events.
+UI design - as of right now only developer UI is present for debugging purposes.
 
-Enemy Logic - Scripts are finished to handle the three types of ET enemy Craft logic.
-
-Player Mechanics - Scripts are nearly finished to handle respawn, location, and status updates.
-
-The scripts are about 90% finished with some missing logic for future mechanics and some animations which haven't been created yet.
-
-Features waiting to be worked on:
-Settings UI panel, though it exists it is not finsihed and has zero logic written.
-Animations
-Sprites
-UI design
-
-As of right now I am only including the scripts for people to disect and pick apart, I will add a build folder with the project's assests
-once the project is easier to maintain.
+Game Object assets are available on request along with the full project build for Unity.
 
 The project is still in it's infancy but is being constantly worked on by myself. Feel free to modify these scripts and report back if you wish.
-If you would like to help contribute to the project I am always looking for help. I can give the full project build files per request, but as of right now they are not 
-tangable enough to put up here without a full explaination of the game objects and their structure within Unity.
+If you would like to help contribute to the project it would be more than welcomed. As of right now the full build is not 
+tangable enough to put up here without a full explaination of the game objects and their structure within Unity, the project is currently buildable with working gameplay elements.
 
 All contributors to the project development will be credited in the final release. Currently A development build is in the works and a release can be expected within
 the next few months or faster if I can get game art finished faster.
 
 This will be an open project to welcome all developers who hold a special place in their hearts for the original Maelstrom game.
 
-Definition of of finished files:
+Definition of files:
 <br>
-Asteroid.cs - Handles asteroid movements, spawning increase per wave, and wrap code for screen edge wrapping.
+AsteroidController.cs - Handles asteroid movements, spawning increase per wave, and is attached to asteroid prefab.
 <BR>
-Bullet.cs - Handles all ammo logic for bullet speed, distance, and friendly/enemy fire logic.
-<br>
-Comet.cs - Handles comet logic including chance of spawn, comet duration, and comet colider logic.
+Current Build Assets.zip - This holds the scripts, sprites, and other development files, this will only be updated when major mechanics change.
 <BR>
 ETCraftEnemy.cs - Handles movement for Purple, Green, and new Blue ET enemy craft, disables screen wrap logic on this object so they can pass through wave in defined pattern.
 <BR>
-GameManager.cs - This file handles most of the game logic interacitons between prefabs and UI elements and their objects.
+EnemyController.cs - Controls Enemy movement, spawn rate, and points.
+<BR>
+GameManager.cs - This file handles most of the game logic interacitons between prefabs, UI elements, and their objects.
+<BR>
+GameOverUIController.cs - Handles logic for Game Over screen when a player is out of lives, Shows total High Score, and applies to high score list if in top 10 scores.
+<BR>
+GameplayUIController.cs - Handles logic for displaying player stats, Power ups, and Bonus points in gameplay scene.
+<BR>
+HighScoreDisplay.cs - Main Menu High Score list logic.
+<BR>
+IScreenWrappable.cs - Handles logic for making screen wrappable for all objects other than ET craft. Attached to empyt game object in scene.
+<BR>
+MainMenuController.cs - Handle button logic and UI mechanics for the main menu screen.
 <BR>
 PlayerController.cs - Handles input logic, player movement, thrust, shield logic, and state updates for powerups, and score saving.
 <BR>
-PowerUp.cs - Handles all power up logic for long range, repeater, and spreader logic including distance and rate of fire. Also masks canister object to include random powerup.
+PowerUpController.cs - Handles all power up logic for long range, repeater, and spreader logic including distance and rate of fire. Also masks canister object to include random powerup.
 <BR>
-SaveMeEvent.cs - This is the logic for stranded ship spawn rate, position, and animations as well as on player collision logic. Extra Life modifier logic.
+RandomEvenController.cs - Logic for chance rate per wave and rays for spawn points in gameplay scene for Events such as supernova, comets, and black holes, etc.
 <BR>
-SuperNovaEvent.cs - This handles the supernova logic, screen shake logic, and object fling logic for when the explosion goes off, also has new mechanic logic.
+SceneTransition.cs - Handles all loading of scenes for the OnClick funcitons.
+<BR>
+ScreenUtils.cs - This will eventually have all the logic for the settings UI panel for desktop versions of the game.
+<BR>
+SettingsPanelController.cs - this includes all logic for player input settings and sliders in the settings UI panel.
+<BR>
+StartScreenManager.cs - This holds the screen transitions between game over, pause, and main menu UI panels.
+<BR>
+UIcontroller.cs - Holds all logic for UI interactions.
+<BR>
+WaveEndManager.cs - This logic handles the wave win requirements, adds additional asteroids per successive wave, and adds player score and bonus points to main score.
+<BR>
+WaveManager.cs - handles logic for asteroid, enemy, and player respawn points along with rays for asteroid splitting.
+<BR>
+backbuttonscript.cs - developer build only, helps us move between scenese that do not have a funcitoning UI.
+<BR>
+quitgameonclick.cs - self explainatory, this is only used for the quit game button on the main menu.
 
 
 Old scripts (do not use)
-<BR>
-WaveEndManager.cs - This is broken and no longer needed as wave logic is included in the finished GameManager.cs script.
-<BR>
-StartScreenManager.cs - This is a different approach for logic on the start screen and UI menu elements. It is not needed as this is included in the Scene Game Manager script.
-<BR>
-SettingsManager.cs - May not be used, logic to bring up settings specific to Mac intel and ARM builds. Not finished.
-<BR>
-HighScoreManager.cs - This is broken and it's updated code is now part of PlayerController.cs script.
-<BR>
-GameManager.cs - The first script build of the game manager object, this is very broken and any usable code is brought to the revised version.
+These uploads are mostly broken now with the addition of newer fully functional scripts. They are only for reference at this point.
