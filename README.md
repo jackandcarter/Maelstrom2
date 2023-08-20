@@ -7,25 +7,29 @@ There are many things sill needing to be finished, including animation logic, te
 such as Super Novas, New Gamma Ray bursts events, Black holes, and X/times score multplier coins.
 
 
-The Revision 1 Scripts are fully functional game object logic with placeholders for addition features to be added later.
+The Revision 1 Scripts are fully functional game object logic with placeholders for additional features to be added later.
 
 Features currently being worked on:
+<br>
 Settings UI panel - though it exists it is not finsihed and has zero logic written.
+<br>
 Animations for gameplay background
+<br>
 Sprites - Sprites for Asteroids, Player Ship, and Bullets are complete, still need sprites for enemies and events.
+<br>
 UI design - as of right now only developer UI is present for debugging purposes.
-
+<br><br>
 Game Object assets are available on request along with the full project build for Unity.
-
+<br><br>
 The project is still in it's infancy but is being constantly worked on by myself. Feel free to modify these scripts and report back if you wish.
 If you would like to help contribute to the project it would be more than welcomed. As of right now the full build is not 
 tangable enough to put up here without a full explaination of the game objects and their structure within Unity, the project is currently buildable with working gameplay elements.
-
+<br><br>
 All contributors to the project development will be credited in the final release. Currently A development build is in the works and a release can be expected within
 the next few months or faster if I can get game art finished faster.
-
+<br><br>
 This will be an open project to welcome all developers who hold a special place in their hearts for the original Maelstrom game.
-
+<br><br>
 Definition of files:
 <br><br>
 AsteroidController.cs - Handles asteroid movements, spawning increase per wave, and is attached to asteroid prefab.
