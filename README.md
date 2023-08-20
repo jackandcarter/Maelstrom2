@@ -27,51 +27,51 @@ the next few months or faster if I can get game art finished faster.
 This will be an open project to welcome all developers who hold a special place in their hearts for the original Maelstrom game.
 
 Definition of files:
-<br>
+<br><br>
 AsteroidController.cs - Handles asteroid movements, spawning increase per wave, and is attached to asteroid prefab.
-<BR>
+<BR><br>
 Current Build Assets.zip - This holds the scripts, sprites, and other development files, this will only be updated when major mechanics change.
-<BR>
+<BR><br>
 ETCraftEnemy.cs - Handles movement for Purple, Green, and new Blue ET enemy craft, disables screen wrap logic on this object so they can pass through wave in defined pattern.
-<BR>
+<BR><br>
 EnemyController.cs - Controls Enemy movement, spawn rate, and points.
-<BR>
+<BR><br>
 GameManager.cs - This file handles most of the game logic interacitons between prefabs, UI elements, and their objects.
-<BR>
+<BR><br>
 GameOverUIController.cs - Handles logic for Game Over screen when a player is out of lives, Shows total High Score, and applies to high score list if in top 10 scores.
-<BR>
+<BR><br>
 GameplayUIController.cs - Handles logic for displaying player stats, Power ups, and Bonus points in gameplay scene.
-<BR>
+<BR><br>
 HighScoreDisplay.cs - Main Menu High Score list logic.
-<BR>
+<BR><br>
 IScreenWrappable.cs - Handles logic for making screen wrappable for all objects other than ET craft. Attached to empyt game object in scene.
-<BR>
+<BR><br>
 MainMenuController.cs - Handle button logic and UI mechanics for the main menu screen.
-<BR>
+<BR><br>
 PlayerController.cs - Handles input logic, player movement, thrust, shield logic, and state updates for powerups, and score saving.
-<BR>
+<BR><br>
 PowerUpController.cs - Handles all power up logic for long range, repeater, and spreader logic including distance and rate of fire. Also masks canister object to include random powerup.
-<BR>
+<BR><br>
 RandomEvenController.cs - Logic for chance rate per wave and rays for spawn points in gameplay scene for Events such as supernova, comets, and black holes, etc.
-<BR>
+<BR><br>
 SceneTransition.cs - Handles all loading of scenes for the OnClick funcitons.
-<BR>
+<BR><br>
 ScreenUtils.cs - This will eventually have all the logic for the settings UI panel for desktop versions of the game.
-<BR>
+<BR><br>
 SettingsPanelController.cs - this includes all logic for player input settings and sliders in the settings UI panel.
-<BR>
+<BR><br>
 StartScreenManager.cs - This holds the screen transitions between game over, pause, and main menu UI panels.
-<BR>
+<BR><br>
 UIcontroller.cs - Holds all logic for UI interactions.
-<BR>
+<BR><br>
 WaveEndManager.cs - This logic handles the wave win requirements, adds additional asteroids per successive wave, and adds player score and bonus points to main score.
-<BR>
+<BR><br>
 WaveManager.cs - handles logic for asteroid, enemy, and player respawn points along with rays for asteroid splitting.
-<BR>
+<BR><br>
 backbuttonscript.cs - developer build only, helps us move between scenese that do not have a funcitoning UI.
-<BR>
+<BR><br>
 quitgameonclick.cs - self explainatory, this is only used for the quit game button on the main menu.
-
+<br>
 
 Old scripts (do not use)
 These uploads are mostly broken now with the addition of newer fully functional scripts. They are only for reference at this point.
