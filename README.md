@@ -1,11 +1,11 @@
 # Maelstrom2
 
 This project is dedicated to the development of Maelstrom2, inspired by the classic MacOS game Maelstrom by Ambrosia Software. 
-Builds are planned for MacOS x86 and ARM, along with Windows and eventually iOS. The game is being developed using Unity Game Engine and will feature updated graphics, smoother gameplay mechanics and transitions, and many new game elements inspired by the original game.
-
-There are many things sill needing to be finished, including animation logic, textures and UI images, Sprites, and some extra scripting for some game events
-such as Super Novas, New Gamma Ray bursts events, Black holes, and X/times score multplier coins.
-
+Builds are planned for MacOS x86 and ARM, along with Windows and eventually iOS. The game is being developed using Unity Game Engine and will feature updated graphics, smoother gameplay mechanics and transitions, and many new game elements inspired by the original game. This is here to share the progress made so far.
+<BR>
+There are many things still needing to be finished, but I'm happy to say the project is well on it's way now :)
+<br>
+Asteroid animations and Spawn points are finished, bullet system and animations are done, and player ship movement is complete. Player shields work now but still need animation.
 
 The Revision 1 Scripts are fully functional game object logic with placeholders for additional features to be added later.
 
@@ -21,20 +21,18 @@ UI design - as of right now only developer UI is present for debugging purposes.
 <br><br>
 Game Object assets are available on request along with the full project build for Unity.
 <br><br>
-The project is still in it's infancy but is being constantly worked on by myself. Feel free to modify these scripts and report back if you wish.
-If you would like to help contribute to the project it would be more than welcomed. As of right now the full build is not 
-tangable enough to put up here without a full explaination of the game objects and their structure within Unity, the project is currently buildable with working gameplay elements.
+If you would like to help contribute to the project it would be more than welcome. The build itself is fully functional on MacOS Ventura but should also work on earlier systems.
 <br><br>
-All contributors to the project development will be credited in the final release. Currently A development build is in the works and a release can be expected within
+All contributors to the project development will be credited in the final release, naturally. Currently A development build is in the works and a release can be expected within
 the next few months or faster if I can get game art finished faster.
 <br><br>
-This will be an open project to welcome all developers who hold a special place in their hearts for the original Maelstrom game.
+This will be an open project to welcome all developers who hold a special place in their hearts for the original Maelstrom game. If you have any questions just ask.
 <br><br>
 Definition of files:
 <br><br>
-AsteroidController.cs - Handles asteroid movements, spawning increase per wave, and is attached to asteroid prefab.
+AsteroidController.cs - Handles asteroid movement, spawning increase per wave, and is attached to asteroid prefab.
 <BR><br>
-Current Build Assets.zip - This holds the scripts, sprites, and other development files, this will only be updated when major mechanics change.
+Current Build Assets.zip - This holds the scripts, sprites, and other development files, this will only be updated when major mechanics change or are added.
 <BR><br>
 ETCraftEnemy.cs - Handles movement for Purple, Green, and new Blue ET enemy craft, disables screen wrap logic on this object so they can pass through wave in defined pattern.
 <BR><br>
