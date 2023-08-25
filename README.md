@@ -3,6 +3,7 @@
 This project is dedicated to the development of Maelstrom2, inspired by the classic MacOS game Maelstrom by Ambrosia Software. 
 Builds are planned for MacOS x86 and ARM, along with Windows and eventually iOS. The game is being developed using Unity Game Engine and will feature updated graphics, smoother gameplay mechanics and transitions, and many new game elements inspired by the original game. This is here to share the progress made so far.
 <BR>
+<BR>
 There are many things still needing to be finished, but I'm happy to say the project is well on it's way now :)
 <br>
 Asteroid animations and Spawn points are finished, bullet system and animations are done, and player ship movement is complete. Player shields work now but still need animation.
