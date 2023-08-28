@@ -2,35 +2,70 @@ using UnityEngine;
 
 public class AsteroidController : MonoBehaviour
 {
-    public GameObject smallAsteroidPrefab; // Reference to the smaller asteroid prefab
-    public int wavePoints = 100;
-    public int hitsRequired = 1;
+    public GameObject explosionPrefab;
+    public int asteroidSize = 1;
 
-    private int currentHits = 0;
+    private GameManager gameManager;
+    private int hitsRemaining;
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void Start()
     {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            currentHits++;
+        hitsRemaining = asteroidSize;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
-            if (currentHits >= hitsRequired)
+    private void Update()
+    {
+        // Check if the asteroid is outside the screen boundaries and wrap it if needed.
+        ScreenWrapObject.WrapObject(transform, Camera.main);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Handle player collision
+            // Example: Player takes damage or loses a life
+        }
+        else if (collision.gameObject.CompareTag("Bullet"))
+        {
+            // Handle bullet collision
+            Destroy(collision.gameObject);
+
+            // Reduce hits remaining and check for destruction
+            hitsRemaining--;
+
+            if (hitsRemaining <= 0)
             {
                 DestroyAsteroid();
-                GameManager.instance.IncreaseScore(wavePoints);
             }
         }
     }
 
-    void DestroyAsteroid()
+    private void DestroyAsteroid()
     {
-        // Play destruction animation or sound
-        Destroy(gameObject);
+        // Instantiate explosion
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
-        // Split into smaller asteroids
-        for (int i = 0; i < 2; i++)
+        // Award points based on asteroid size
+        int points = 0;
+        switch (asteroidSize)
         {
-            Instantiate(smallAsteroidPrefab, transform.position, Quaternion.identity);
+            case 1:
+                points = 100;
+                break;
+            case 2:
+                points = 50;
+                break;
+            case 3:
+                points = 20;
+                break;
         }
+
+        // Update game manager with points
+        gameManager.UpdateTotalScore(points);
+
+        // Destroy this asteroid
+        Destroy(gameObject);
     }
 }
