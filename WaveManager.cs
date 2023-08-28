@@ -3,50 +3,128 @@ using System.Collections.Generic;
 
 public class WaveManager : MonoBehaviour
 {
-    public GameObject asteroidPrefab; // Reference to the asteroid prefab
-    public Transform[] spawnPoints; // Array of spawn points
+    // Define wave spawn points in the Unity Inspector
+    public Transform[] waveSpawnPoints;
 
-    private int currentWave = 1; // Current wave number
-    private int startingAsteroids = 3; // Number of asteroids in the first wave
-    private int maxSpawnPoints = 8; // Total number of spawn points
+    // Define asteroid prefabs in the Unity Inspector for different sizes
+    public GameObject largeAsteroidPrefab;
+    public GameObject mediumAsteroidPrefab;
+    public GameObject smallAsteroidPrefab;
 
-    private void Start()
+    // Define ET enemy craft prefabs and their spawn chances in the Unity Inspector
+    public GameObject purpleETPrefab;
+    public GameObject greenETPrefab;
+    public GameObject blueETPrefab;
+
+    // Define ET enemy craft spawn points in the Unity Inspector
+    public Transform[] etSpawnPoints;
+
+    public float purpleETSpawnChance;
+    public float greenETSpawnChance;
+    public float blueETSpawnChance;
+
+    // Define initial number of large asteroids in the first wave
+    public int initialLargeAsteroids = 3;
+
+    // Timer to track when to start a new wave
+    private float waveStartTimer = 0f;
+
+    // Number of large asteroids remaining in the current wave
+    private int largeAsteroidsRemaining;
+
+    void Start()
     {
-        StartNewWave(); // Start the first wave
+        // Initialize the number of large asteroids for the first wave
+        largeAsteroidsRemaining = initialLargeAsteroids;
     }
 
-    private void StartNewWave()
+    void Update()
     {
-        // Calculate the number of asteroids for this wave
-        int numberOfAsteroids = startingAsteroids + (currentWave - 1);
+        // Check if it's time to start a new wave
+        waveStartTimer += Time.deltaTime;
 
-        // Ensure we don't exceed the maximum spawn points
-        numberOfAsteroids = Mathf.Min(numberOfAsteroids, maxSpawnPoints);
-
-        // Create a list of available spawn points
-        List<Transform> availableSpawnPoints = new List<Transform>(spawnPoints);
-
-        // Randomly select spawn points for asteroids
-        for (int i = 0; i < numberOfAsteroids; i++)
+        if (waveStartTimer >= Random.Range(20f, 30f)) // Adjust the range as needed
         {
-            // Check if there are available spawn points
-            if (availableSpawnPoints.Count == 0)
-            {
-                break; // No available spawn points left
-            }
+            StartNewWave();
+            waveStartTimer = 0f;
+        }
+    }
 
-            // Randomly select a spawn point
-            int randomIndex = Random.Range(0, availableSpawnPoints.Count);
-            Transform spawnPoint = availableSpawnPoints[randomIndex];
-
-            // Instantiate the asteroid at the selected spawn point
-            Instantiate(asteroidPrefab, spawnPoint.position, Quaternion.identity);
-
-            // Remove the selected spawn point from the available list
-            availableSpawnPoints.RemoveAt(randomIndex);
+    void StartNewWave()
+    {
+        // Randomly select spawn points for large asteroids
+        List<int> asteroidSpawnIndices = new List<int>();
+        for (int i = 0; i < waveSpawnPoints.Length; i++)
+        {
+            asteroidSpawnIndices.Add(i);
         }
 
-        // Increase the wave number for the next wave
-        currentWave++;
+        // Shuffle the list of spawn indices to randomize asteroid placement
+        for (int i = 0; i < asteroidSpawnIndices.Count; i++)
+        {
+            int temp = asteroidSpawnIndices[i];
+            int randomIndex = Random.Range(i, asteroidSpawnIndices.Count);
+            asteroidSpawnIndices[i] = asteroidSpawnIndices[randomIndex];
+            asteroidSpawnIndices[randomIndex] = temp;
+        }
+
+        // Spawn large asteroids at random spawn points
+        for (int i = 0; i < initialLargeAsteroids; i++)
+        {
+            int spawnIndex = asteroidSpawnIndices[i];
+            Instantiate(largeAsteroidPrefab, waveSpawnPoints[spawnIndex].position, Quaternion.identity);
+        }
+
+        // Reset the count of large asteroids remaining
+        largeAsteroidsRemaining = initialLargeAsteroids;
+
+        // Spawn ET enemy craft based on spawn chances
+        SpawnETCraft();
     }
+
+    void SpawnETCraft()
+    {
+        // Randomly select an ET craft to spawn
+        float randomValue = Random.value;
+
+        if (randomValue <= purpleETSpawnChance)
+        {
+            // Spawn Purple ET craft at a random spawn point
+            int spawnIndex = Random.Range(0, etSpawnPoints.Length);
+            Instantiate(purpleETPrefab, etSpawnPoints[spawnIndex].position, Quaternion.identity);
+        }
+        else if (randomValue <= purpleETSpawnChance + greenETSpawnChance)
+        {
+            // Spawn Green ET craft at a random spawn point
+            int spawnIndex = Random.Range(0, etSpawnPoints.Length);
+            Instantiate(greenETPrefab, etSpawnPoints[spawnIndex].position, Quaternion.identity);
+        }
+        else if (randomValue <= purpleETSpawnChance + greenETSpawnChance + blueETSpawnChance)
+        {
+            // Spawn Blue ET craft at a random spawn point
+            int spawnIndex = Random.Range(0, etSpawnPoints.Length);
+            Instantiate(blueETPrefab, etSpawnPoints[spawnIndex].position, Quaternion.identity);
+        }
+    }
+
+    public void AsteroidDestroyed(GameObject asteroid)
+    {
+        // Handle asteroid destruction logic here
+        // You may need to spawn smaller asteroids or update wave progress
+
+        // Check if the destroyed asteroid was not the smallest size
+        AsteroidController asteroidController = asteroid.GetComponent<AsteroidController>();
+        if (asteroidController.asteroidSize > 1)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Vector3 spawnPosition = asteroid.transform.position + Random.insideUnitSphere * 0.5f;
+                GameObject smallerAsteroid = Instantiate(mediumAsteroidPrefab, spawnPosition, Quaternion.identity);
+                AsteroidController smallerAsteroidController = smallerAsteroid.GetComponent<AsteroidController>();
+                smallerAsteroidController.asteroidSize = asteroidController.asteroidSize - 1;
+            }
+        }
+    }
+
+    // Add other methods as needed, e.g., for starting new waves and updating wave progress
 }
