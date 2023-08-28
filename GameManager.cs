@@ -1,94 +1,44 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public Text waveText;
+    public Text scoreText;
+    public Text livesText;
+    public Text shieldText;
+    public Text bonusText;
+    public Text multiplierText;
+    public Text powerUpText;
+    
+    private int waveNumber = 1;
+    private int playerScore = 0;
+    private int playerLives = 3;
+    private int shieldPoints = 100;
+    private int bonusPoints = 5000;
+    private int coinMultiplier = 1;
 
-    public GameObject playerPrefab;
-    public Transform playerSpawnPoint;
-    public GameObject gameOverCanvas;
-    public int playerLives = 3;
-    public int playerScore = 0;
-
-    void Awake()
+    private void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
+        UpdateUI();
     }
 
-    void Start()
+    private void UpdateUI()
     {
-        SpawnPlayer();
+        waveText.text = "Wave: " + waveNumber;
+        scoreText.text = "Score: " + playerScore;
+        livesText.text = "Lives: " + playerLives;
+        shieldText.text = "Shield: " + shieldPoints;
+        bonusText.text = "Bonus: " + bonusPoints;
+        multiplierText.text = "x" + coinMultiplier;
+        powerUpText.text = "Power-Up: None"; // Update this when a power-up is active
     }
 
-    void SpawnPlayer()
-    {
-        Instantiate(playerPrefab, playerSpawnPoint.position, Quaternion.identity);
-    }
-
-    public void IncreaseScore(int points)
+    public void UpdateTotalScore(int points)
     {
         playerScore += points;
+        UpdateUI();
     }
 
-    public void PlayerDied()
-    {
-        playerLives--;
-
-        if (playerLives > 0)
-        {
-            SpawnPlayer();
-        }
-        else
-        {
-            GameOver();
-        }
-    }
-
-    public void GameOver()
-    {
-        gameOverCanvas.SetActive(true);
-        Time.timeScale = 0f;
-    }
-
-    public void RestartGame()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-}
-public class ScreenWrapping : MonoBehaviour
-{
-    void Update()
-    {
-        WrapObjects();
-    }
-
-    void WrapObjects()
-    {
-        // Loop through all objects with a Collider2D component that can wrap
-        Collider2D[] colliders = Physics2D.OverlapAreaAll(
-            new Vector2(-10f, -10f), // Define a wrapping area that covers the entire screen
-            new Vector2(10f, 10f)
-        );
-
-        foreach (Collider2D collider in colliders)
-        {
-            // Check if the object has a "WrapAroundScreen" method
-            IScreenWrappable wrappable = collider.GetComponent<IScreenWrappable>();
-
-            if (wrappable != null)
-            {
-                // Call the "WrapAroundScreen" method to handle screen wrapping
-                wrappable.WrapAroundScreen();
-            }
-        }
-    }
+    // Add other methods as needed, e.g., for updating lives, shield, bonus, etc.
 }
