@@ -17,7 +17,7 @@ The Revision 1 Scripts are old game object logic with no new functionality, they
 Revision 3 Scripts are the newest, they combine alot of the game's logic into three major mechanic systems, Game Manager, Wave Manager, and Event Manager.
 <BR><BR>
 Event Manager - 
-<BR>
+<BR><BR>
 Handles the logic for spawning Power Up Events, Bad Guy Events, and Wave Events such as black hole, gamma burst, super nova, et craft, comets, meteor shower, and power ups, etc. Attach the needed prefabs and spawn points after adding this script to an empty game object in the gameplay scene.
 <BR><BR>
 Game Manager - 
@@ -25,7 +25,7 @@ Game Manager -
 Handles logic for holding player stats such as lives, shield, power ups applied, and all points, it's responsible for reporting this info to the UI elements, and works together with the other mechanics scripts that require this information such as the wave manager to determine the win or lose triggers per wave.
 <BR><BR>
 Wave Manager - 
-<BR>BR>
+<BR><BR>
 This is holds most of the logic for the game. It is responsible for spawning asteroids, the player after death or win, handles UI window and scene transitions for the wave win UI, pause UI, and game over UI. It handles all spawn points and randomizations for objects, and works together with every other script to work seamlessly during wave progression.
 <BR><BR>
 Player Controller - 
