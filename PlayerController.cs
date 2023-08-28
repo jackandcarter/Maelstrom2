@@ -1,105 +1,162 @@
-using System.Collections;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour, IScreenWrappable
+public class PlayerController : MonoBehaviour
 {
-    public float thrustForce = 5f;
-    public float rotationSpeed = 180f;
-    public GameObject bulletPrefab;
-    public Transform firePoint;
-    public float bulletSpeed = 10f;
-    public string fireInput = "Fire1";  // Change this according to your setup
-    public string thrustInput = "Vertical";  // Change this according to your setup
-    public string rotationInput = "Horizontal";  // Change this according to your setup
-    public string shieldInput = "Shield";  // Change this according to your setup
-    public ParticleSystem shieldParticleEffect; // Reference to the shield particle effect
-    public float shieldDuration = 5f;
-    private bool isShieldActive = false;
+    public float moveSpeed = 5f; // Adjust this speed as needed
+    public float rotationSpeed = 180f; // Adjust this speed as needed
+    public GameObject bulletPrefab; // Assign the bullet prefab in the Inspector
+    public Transform bulletSpawnPoint; // Assign the bullet spawn point in the Inspector
+    public float shieldPoints = 100f; // Initial shield points
 
-    private void Update()
+    private bool isShieldActive = false; // Flag to track if the shield is active
+    private bool isRepeaterActive = false; // Flag to track if the repeater power-up is active
+    private bool isLongRangeActive = false; // Flag to track if the long-range power-up is active
+    private bool isSpreaderActive = false; // Flag to track if the spreader power-up is active
+
+    // Power-up properties
+    private float longRangeMultiplier = 1f;
+    private int spreaderBulletCount = 1;
+    
+    void Update()
     {
-        HandleThrust();
-        HandleRotation();
-        HandleFire();
-        HandleShield();
+        // Player rotation logic
+        float rotationInput = Input.GetAxis("Horizontal");
+        transform.Rotate(Vector3.forward * -rotationInput * rotationSpeed * Time.deltaTime);
 
-        // Screen wrapping logic
-        WrapAroundScreen();
-    }
+        // Player thrust logic
+        float thrustInput = Input.GetAxis("Vertical");
+        Vector3 forwardDirection = transform.up;
 
-    private void HandleThrust()
-    {
-        float thrustValue = Input.GetAxis(thrustInput);
-        Vector3 thrustDirection = transform.up * thrustValue;
-        GetComponent<Rigidbody2D>().AddForce(thrustDirection * thrustForce);
-    }
+        // Apply thrust force in the forward direction
+        transform.Translate(forwardDirection * moveSpeed * thrustInput * Time.deltaTime);
 
-    private void HandleRotation()
-    {
-        float rotationInputValue = Input.GetAxis(rotationInput);
-        transform.Rotate(Vector3.forward, rotationInputValue * rotationSpeed * Time.deltaTime);
-    }
-
-    private void HandleFire()
-    {
-        if (Input.GetButtonDown(fireInput))
+        // Fire bullets logic
+        if (Input.GetButtonDown("Fire1"))
         {
-            GameObject newBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D bulletRb = newBullet.GetComponent<Rigidbody2D>();
-            bulletRb.velocity = transform.up * bulletSpeed;
-            Destroy(newBullet, 3f);
+            if (isSpreaderActive)
+            {
+                FireSpreaderBullet();
+            }
+            else
+            {
+                FireBullet();
+            }
+        }
+
+        // Activate and deactivate shield logic
+        if (Input.GetButton("Shield"))
+        {
+            ActivateShield();
+        }
+        else
+        {
+            DeactivateShield();
+        }
+
+        // Update shield points
+        if (isShieldActive)
+        {
+            shieldPoints -= Time.deltaTime * 5f; // Deplete shield points over time
+            if (shieldPoints <= 0f)
+            {
+                DeactivateShield();
+            }
         }
     }
 
-    private void HandleShield()
+    void FireBullet()
     {
-        if (Input.GetButton(shieldInput) && !isShieldActive)
+        if (bulletPrefab != null && bulletSpawnPoint != null)
         {
-            StartCoroutine(ActivateShield());
+            // Instantiate a bullet at the bullet spawn point
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+            // Set properties based on power-ups
+            BulletController bulletController = bullet.GetComponent<BulletController>();
+
+            // For Repeater, continuously fire bullets as long as the button is held
+            if (isRepeaterActive)
+            {
+                bulletController.SetBulletSpeedMultiplier(2f);
+            }
+
+            // For Long Range, adjust bullet properties
+            if (isLongRangeActive)
+            {
+                bulletController.SetBulletProperties(longRangeMultiplier, 2f);
+            }
         }
     }
 
-    private IEnumerator ActivateShield()
+    void FireSpreaderBullet()
     {
+        if (bulletPrefab != null && bulletSpawnPoint != null)
+        {
+            // Instantiate spreader bullets in a cone
+            for (int i = 0; i < spreaderBulletCount; i++)
+            {
+                Quaternion rotation = bulletSpawnPoint.rotation * Quaternion.Euler(0f, 0f, i * 10f); // Adjust spread angle as needed
+                GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, rotation);
+                
+                // Set properties based on power-ups
+                BulletController bulletController = bullet.GetComponent<BulletController>();
+                bulletController.SetBulletSpeedMultiplier(1f); // Adjust speed as needed
+            }
+        }
+    }
+
+    void ActivateShield()
+    {
+        // Activate the shield
         isShieldActive = true;
-        shieldParticleEffect.Play(); // Play the particle effect
-        yield return new WaitForSeconds(shieldDuration);
-        shieldParticleEffect.Stop(); // Stop the particle effect
+    }
+
+    void DeactivateShield()
+    {
+        // Deactivate the shield
         isShieldActive = false;
     }
 
-    public void WrapAroundScreen()
+    public void TakeDamage(float damage)
     {
-        // Get the player's current position
-        Vector3 currentPosition = transform.position;
+        if (!isShieldActive)
+        {
+            // Handle player damage logic here, e.g., reduce player lives
+            // You can also implement a respawn mechanism here
+        }
+    }
 
-        // Check if the player is off-screen to the right
-        if (currentPosition.x > ScreenUtils.ScreenRight)
-        {
-            // Reposition the player to the left side of the screen
-            currentPosition.x = ScreenUtils.ScreenLeft;
-        }
-        // Check if the player is off-screen to the left
-        else if (currentPosition.x < ScreenUtils.ScreenLeft)
-        {
-            // Reposition the player to the right side of the screen
-            currentPosition.x = ScreenUtils.ScreenRight;
-        }
+    public void ActivateRepeaterPowerUp()
+    {
+        isRepeaterActive = true;
+    }
 
-        // Check if the player is off-screen above
-        if (currentPosition.y > ScreenUtils.ScreenTop)
-        {
-            // Reposition the player to the bottom of the screen
-            currentPosition.y = ScreenUtils.ScreenBottom;
-        }
-        // Check if the player is off-screen below
-        else if (currentPosition.y < ScreenUtils.ScreenBottom)
-        {
-            // Reposition the player to the top of the screen
-            currentPosition.y = ScreenUtils.ScreenTop;
-        }
+    public void DeactivateRepeaterPowerUp()
+    {
+        isRepeaterActive = false;
+    }
 
-        // Update the player's position
-        transform.position = currentPosition;
+    public void ActivateLongRangePowerUp(float multiplier)
+    {
+        isLongRangeActive = true;
+        longRangeMultiplier = multiplier;
+    }
+
+    public void DeactivateLongRangePowerUp()
+    {
+        isLongRangeActive = false;
+        longRangeMultiplier = 1f;
+    }
+
+    public void ActivateSpreaderPowerUp(int bulletCount)
+    {
+        isSpreaderActive = true;
+        spreaderBulletCount = bulletCount;
+    }
+
+    public void DeactivateSpreaderPowerUp()
+    {
+        isSpreaderActive = false;
+        spreaderBulletCount = 1;
     }
 }
