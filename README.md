@@ -7,6 +7,10 @@ Builds are planned for MacOS Intel and Apple Silicon, along with Windows and eve
 There are many things still needing to be finished, but I'm happy to say the project is well on it's way now :)
 <br>
 Asteroid animations and Spawn points are finished, bullet system and animations are done, and player ship movement is complete. Player shields work now but still need animation. All Power Ups are nearly complete with just a bit of tweaking left, mechanic management is complete, and new features have been implimented. It's mostly graphics and Main Menu, Game Over, and UI elements that are left to be finished.
+<BR>
+<BR>
+Revision 3.zip - This file has the pre-built prefabs, complete functioning scripts, sprites, and some development files. It includes the readme and images for the project's setup in unity and how to use the included files. 
+<BR>
 
 The Revision 1 Scripts are old game object logic with no new functionality, they are slowly being removed as they are implimented into the revision 3 scipts.
 <BR><BR>
