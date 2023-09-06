@@ -4,12 +4,12 @@
 # Maelstrom2
 
 This project is dedicated to the development of Maelstrom2, inspired by the classic MacOS game Maelstrom by Ambrosia Software. 
-Builds are planned for MacOS Intel and Apple Silicon, along with Windows and eventually iOS. The game is being developed using Unity Game Engine and will feature updated graphics, smoother gameplay mechanics, new features and mechanics, and transitions with many new game elements inspired by the original game. This is here to share the progress made so far.
+Builds are planned for MacOS Intel and Apple Silicon, along with Windows and eventually iOS. The game is being developed using Unity Game Engine and will feature updated graphics, smoother gameplay mechanics, new features, and transitions with many new game elements inspired by the original game. This readme is here to share the progress made so far.
 <BR>
 <BR>
-There are many things still needing to be finished, but I'm happy to say the project is well on it's way now :)
+There are a few things that still need to be finished, but I'm happy to say the project is near it's fully functioning developer build :)
 <br>
-Asteroid animations and Spawn points are finished, bullet system and animations are done, and player ship movement is complete. Player shields work now but still need animation. All Power Ups are nearly complete with just a bit of tweaking left, mechanic management is complete, and new features have been implimented. It's mostly graphics and Main Menu, Game Over, and UI elements that are left to be finished.
+Asteroid animations and Spawn points are finished, Player ship movement, shield, and bullet/power up mechanics are complete. So far two of the new features have been implimented with a few more being added slowly as bugs are fixed. It's mostly sounds, some event animations, and Main menu that need work still.
 <BR>
 <BR>
 Revision 3.zip - This file has the pre-built prefabs, complete functioning rev3 scripts, sprites, and some early development files now completed in Rev6. It includes the readme and images for the project's setup in unity and how to use the included files. This is the first buildable project that was tested. It is now outdated and i
