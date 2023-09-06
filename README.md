@@ -7,8 +7,8 @@ This project is dedicated to the development of Maelstrom2, inspired by the clas
 Builds are planned for MacOS Intel and Apple Silicon, along with Windows and eventually iOS. The game is being developed using Unity Game Engine and will feature updated graphics, smoother gameplay mechanics, new features, and transitions with many new game elements inspired by the original game. This readme is here to share the progress made so far.
 <BR>
 <BR>
-There are a few things that still need to be finished, <BR><BR>but I'm happy to say the project is near it's fully functioning developer build :)
-<br>
+There are a few things that still need to be finished, <BR>but I'm happy to say the project is near it's fully functioning developer build :)
+<br><BR>
 Asteroid animations and Spawn points are finished, Player ship movement, shield, and bullet/power up mechanics are complete. So far two of the new features have been implimented with a few more being added slowly as bugs are fixed. It's mostly sounds, some event animations, and Main menu that need work still.
 <BR>
 <BR>
