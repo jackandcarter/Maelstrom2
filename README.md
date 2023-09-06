@@ -8,7 +8,7 @@ Builds are planned for MacOS Intel and Apple Silicon, along with Windows and eve
 <BR>
 <BR>
 There are a few things that still need to be finished, <BR><BR>but I'm happy to say the project is near it's fully functioning developer build :)
-<br><BR>
+<br>
 Asteroid animations and Spawn points are finished, Player ship movement, shield, and bullet/power up mechanics are complete. So far two of the new features have been implimented with a few more being added slowly as bugs are fixed. It's mostly sounds, some event animations, and Main menu that need work still.
 <BR>
 <BR>
