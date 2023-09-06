@@ -1,3 +1,6 @@
+
+<img width="262" alt="GameIcon" src="https://github.com/jackandcarter/Maelstrom2/assets/131922119/e0db474a-305b-4e98-9ae8-0b76d7da7c0a">
+
 # Maelstrom2
 
 This project is dedicated to the development of Maelstrom2, inspired by the classic MacOS game Maelstrom by Ambrosia Software. 
