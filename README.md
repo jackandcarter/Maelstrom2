@@ -12,7 +12,7 @@ There are a few things that still need to be finished, <BR>but I'm happy to say 
 Asteroid animations and Spawn points are finished, Player ship movement, shield, and bullet/power up mechanics are complete. So far two of the new features have been implimented with a few more being added slowly as bugs are fixed. It's mostly sounds, some event animations, and Main menu that need work still.
 <BR>
 <BR>
-Revision 3.zip - This file has the pre-built prefabs, complete functioning rev3 scripts, sprites, and some early development files now completed in Rev6. It includes the readme and images for the project's setup in unity and how to use the included files. This is the first buildable project that was tested. It is now outdated and i
+Revision 3.zip - This file has the pre-built prefabs, complete functioning rev3 scripts, sprites, and some early development files now completed in Rev6. It includes the readme and images for the project's setup in unity and how to use the included files. This is the first buildable project that was tested.
 <BR>
 Revision 3 Files are now being phased out into revision 6 pre developer build. Rev4 and Rev5 were for bug fixes and ui creation and didnt add any mechanic logic or finish any gameplay mechanics.
 <BR>
