@@ -8,16 +8,63 @@ Builds are planned for MacOS Intel and Apple Silicon, along with Windows and eve
 <BR>
 <BR>
 There are a few things that still need to be finished, <BR>but I'm happy to say the project is near it's fully functioning developer build :)
-<br><BR>
-Asteroid animations and Spawn points are finished, Player ship movement, shield, and bullet/power up mechanics are complete. So far two of the new features have been implimented with a few more being added slowly as bugs are fixed. It's mostly sounds, some event animations, and Main menu that need work still.
+<br>
+<BR> The script descriptions below reflect their described mechanics and have fully implemented logic. You can find them in their respective folders.<BR>
+As of right now we are at revision 6.1 of the main build and have a developer build available for testing. The next revision is planned to fix current behaviors of the existing mechanics.
+<BR>
+Managers<BR><BR>
+     GameManager - Handles game states, level progression, UI, and overall control.<BR>
+     EventManager - Manages beneficial and harmful events.<BR>
+     AudioManager - Controls audio and sound effects.<BR>
+     SaveManager - Handles saving and loading game progress.<BR>
+<BR>
+Player Scripts<BR><BR>
+   PlayerController - Manages player ship movement, input handling, and collision detection.<BR>
+   PlayerHealth - Manages player health, shield points, and respawning logic.<BR>
+   PlayerAmmo - Handles player's ammo power-ups and their effects.<BR>
+   PlayerUI - Updates the player-related UI elements, such as lives, shield meter, and ammo display.<BR>
+<BR>
+Asteroid Scripts<BR><BR>
+   LargeAsteroid - Handles asteroid behavior, including splitting logic and collisions as well as player point onDestroy.<BR>
+   MediumAsteroid - Handles asteroid behavior, including splitting logic and collisions as well as player point onDestroy.<BR>
+   SmallAsteroid - Handles asteroid behavior and collisions with small asteroids as well as player points assigned onDestroy.<BR>
+   AsteroidManager - Manages asteroid spawning and wave-related logic.<BR>
+<BR>
+Enemy Scripts<BR>
+   EnemyController Scripts - Controls enemy spacecraft movement for each type, shooting behavior, and AI. See the scripts for each type of craft behavior.<BR>
+   EnemySpawnManager - Manages enemy spawning, types, and A.I.s.<BR>
+<BR>
+Bullet Scripts<BR><BR>
+   Bullet - Handles bullet movement, collisions, and destruction.<BR>
+   BulletManager - Manages bullet pool for spawning, recycling, and collision detection of all bullet types such as enemies, player ammo upgrades, etc.<BR>
+   BulletCollision - Handles conditions for bullet vs game objects using triggers.<BR>
+<BR>
+Power-Up Scripts<BR><BR>
+   PowerUp Prefab Scripts - Defines power-up behavior, duration, and effects.<BR>
+   PowerUpManager - Manages power-up spawning, pickup, and duration tracking.<BR>
+<BR>
+Level Scripts<BR><BR>
+   LevelManager - Controls level transitions and overall game pacing.<BR>
+<BR>
+Event Scripts<BR><BR>
+   Separate scripts for each event type (`SaveMeEvent`, `CometEvent`, etc.) - Handles specific event behavior. See the individual scripts for their behaviors.<BR>
+   EventController - Manages event spawning, timing, and interactions.<BR>
+<BR>
+UI Scripts<BR><BR>
+   UIManager - Manages UI elements, updates scores, lives, and wave progress for the Game Play scene’s UI bar.<BR>
+  <BR><BR>
+Screen Wrap - Attached to game objects that require the screen wrap mechanic to stay in screen bounds.<BR>
+<BR>
+Sound and Audio<BR><BR>
+    AudioManager - Handles playing of all audio clips when the audio manager is called upon, as an instance it will allow access to audio clips from all other scripts.<BR>
+<BR>
+Save/Load System<BR><BR>
+    SaveManager - Handles saving and loading game progress for up to 3 profiles at the moment, with the logic to implement more already in place using PlayerPrefs.<BR>
+<BR>
+With this script layout and organization, each game component is encapsulated within its respective scripts, making it easier to maintain, extend, and debug. This will be the format moving forward for all mechanics or any additional features that will be added in official major updates.<BR>
+<BR>
+Effects<BR><BR>
+    CameraShake - For SuperNova effect after explosion, attaches to the main camera but the script’s code needs work.<BR>
+    DestroyAfterAnimation - Destroys any animation prefab that doesn’t loop upon last clip playing.<BR>
 <BR>
 <BR>
-Revision 3.zip - This file has the pre-built prefabs, complete functioning rev3 scripts, sprites, and some early development files now completed in Rev6. It includes the readme and images for the project's setup in unity and how to use the included files. This is the first buildable project that was tested.
-<BR>
-Revision 3 Files are now being phased out into revision 6 pre developer build. Rev4 and Rev5 were for bug fixes and ui creation and didnt add any mechanic logic or finish any gameplay mechanics.
-<BR>
-<BR>
-Rev 6.zip - This file includes the biggest update to the game and has a huge list of added mechanics and logic, mostly UI and and gameplay related. Major bugs are fixed but still a few left to work out, they will all be fixed in the Developer Build. Currently These files can replace the Revision 3 game object setup in the project hierarchy and delete or add the new script game objects as needed. A MacOS build of Rev6 will be available shortly to show the progression of the development and it's updated graphics.
-<BR>
-<BR>
-The description of the files will be up soon to reflect the Revision 6 Scripts and new feature functionality.
