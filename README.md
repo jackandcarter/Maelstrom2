@@ -11,7 +11,7 @@ There are a few things that still need to be finished, <BR>but I'm happy to say 
 <br>
 <BR> The script descriptions below reflect their described mechanics and have fully implemented logic. You can find them in their respective folders.<BR>
 As of right now we are at revision 6.1 of the main build and have a developer build available for testing. The next revision is planned to fix current behaviors of the existing mechanics.
-<BR>
+<BR><BR>
 Managers<BR><BR>
      GameManager - Handles game states, level progression, UI, and overall control.<BR>
      EventManager - Manages beneficial and harmful events.<BR>
@@ -52,7 +52,7 @@ Event Scripts<BR><BR>
 <BR>
 UI Scripts<BR><BR>
    UIManager - Manages UI elements, updates scores, lives, and wave progress for the Game Play scene’s UI bar.<BR>
-  <BR><BR>
+  <BR>
 Screen Wrap - Attached to game objects that require the screen wrap mechanic to stay in screen bounds.<BR>
 <BR>
 Sound and Audio<BR><BR>
