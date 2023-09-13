@@ -234,7 +234,7 @@ public class LevelManager : MonoBehaviour
         playerShip.transform.position = respawnPoint.position;
         playerShip.transform.rotation = Quaternion.identity;
 
-        // You can add additional respawn logic here.
+        // We will add additional respawn logic here.
 
         // Set isLevelWon to false to allow gameplay to resume.
         isLevelWon = false;
