@@ -35,7 +35,6 @@ Enemy Scripts<BR>
    EnemySpawnManager - Manages enemy spawning, types, and A.I.s.<BR>
 <BR>
 Bullet Scripts<BR><BR>
-   Bullet - Handles bullet movement, collisions, and destruction.<BR>
    BulletManager - Manages bullet pool for spawning, recycling, and collision detection of all bullet types such as enemies, player ammo upgrades, etc.<BR>
    BulletCollision - Handles conditions for bullet vs game objects using triggers.<BR>
 <BR>
