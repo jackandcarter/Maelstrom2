@@ -72,5 +72,5 @@ public class EnemySpawnManager : MonoBehaviour
         return Random.value <= spawnChance;
     }
 
-    // Rest of your code...
+    // Additional Enemy types can be added here later.
 }
