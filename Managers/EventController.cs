@@ -58,7 +58,7 @@ public class EventController : MonoBehaviour
 
     public void EventCompleted()
     {
-        // Called when an event is completed (e.g., when a Black Hole disappears).
+        // Called when an event is completed (when a Black Hole disappears).
         isEventActive = false;
     }
 }
