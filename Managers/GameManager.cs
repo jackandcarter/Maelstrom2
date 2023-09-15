@@ -62,10 +62,6 @@ public class GameManager : MonoBehaviour
             // Retrieve the player's current total score from LevelManager.
             int finalScore = levelManager.GetPlayerScore();
 
-            // Your logic to check if it's a high score goes here.
-            // ...
-
-            // Example logic (you can adjust it as needed):
             string highScoresKey = "HighScores";
             string highScoresString = PlayerPrefs.GetString(highScoresKey, "");
             int[] highScores;
