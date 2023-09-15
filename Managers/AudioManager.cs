@@ -54,5 +54,5 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // You can add more audio-related methods and functionality as needed.
+    // We can add more audio-related methods and functionality as needed or as new features are implemented.
 }
