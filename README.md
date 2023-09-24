@@ -11,7 +11,7 @@ There are a few things that still need to be finished, <BR>but I'm happy to say 
 <br>
 <BR>
 Update: Due to the direction the Unity team has taken the editor and it's new structure to charge users of the engine, development is being moved over to Unreal Engine 5.<BR>
-The news of unity's decision has been a shock to the developer community, thus we cannot continue to use the editor as the future of Unity is unclear, However, moving to UE5 engine <BR>
+The news of unity's decision has been a shock to the developer community, thus we cannot continue to use the editor as the future of Unity is unclear, However, moving to UE5 engine
 will allow us to take the game development further and opens up a wide range of possibilities that were not able to be conceptualized using Unity. This will continue to be the main branch<BR>
 and will be used for any references or possible future unity development, which at this time will be ceased. The UE5 branch of the project will be available shortly. <BR>
 <BR>
