@@ -10,9 +10,6 @@ Builds are planned for MacOS Intel and Apple Silicon, along with Windows and eve
 There are a few things that still need to be finished, <BR>but I'm happy to say the project is near it's fully functioning developer build :)
 <br>
 <BR>
-Update: Due to the direction the Unity team has taken the editor and it's new structure to charge users of the engine, development is being moved over to Unreal Engine 5.<BR>
-The news of unity's decision has been a shock to the developer community, thus we cannot continue to use the editor as the future of Unity is unclear, However, moving to UE5 engine will allow us to take the game development further and opens up a wide range of possibilities that were not able to be conceptualized using Unity. Unfortunately this means all code will need to be rewritten in C++ as opposed to C# as this is what the UE5 engine uses. Although C++ is a bit more low level and requires more code to achieve the same functions, we are confident that this will only be a minor setback. This will continue to be the main branch and will be used for any references or possible future unity development, which at this time will be ceased. The UE5 branch of the project will be available shortly. <BR>
-<BR>
 <BR> The script descriptions below reflect their described mechanics and have fully implemented logic. You can find them in their respective folders.<BR>
 As of right now we are at revision 6.1 of the main build and have a developer build available for testing. The next revision is planned to fix current behaviors of the existing mechanics.
 <BR><BR>
