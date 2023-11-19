@@ -19,7 +19,7 @@ As of right now we are at revision 6.1 of the main build and have a developer bu
      AudioManager - Controls audio and sound effects.<BR>
      SaveManager - Handles saving and loading game progress.<BR>
      LevelManager - Probably the biggest script with the most logic for player, level, and UI mechanics, it uses update function together with GameManager to track asteroids and call level win condition.
-<BR>
+<BR><BR>
 **Player Scripts**<BR><BR>
    PlayerController - Manages player ship movement, input handling, and collision detection.<BR>
    PlayerHealth - Manages player health, shield points, and respawning logic.<BR>
