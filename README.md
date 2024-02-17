@@ -46,7 +46,8 @@ Selecting of Multiplayer Mode is not implemented yet, but this will load a Lobby
 
 This branch includes the project folders for each play mode of the game. These can be used for reference. You can grab the current client builds from the links in the discord.<BR><BR>
 The Project Discord can be found here:
-
+<BR><BR>
+https://discord.gg/hP6hMgNCJP
 <BR><BR>
 You'll find the most recent updates and progress on the discord, the github is here just for reference and archival of files. Any of the scripts or files created here can be used freely in non-commercial use.
 
