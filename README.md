@@ -3,11 +3,11 @@
 
 # Maelstrom2
 
-Build Revision 7 Development
+Build Revision 7 is in Development
 <BR><BR>
 Changes:
 
- - Moved to 3DHRDP Pipeline in Unity.<BR>
+ - Moved to 3DHD Rendering Pipeline in Unity.<BR>
  - Created MainMenu Scene and UI elements.<BR>
  - Introduced Spash Screen and Startup Sound to Main Menu Scene.<BR>
  - Created Fade-in Transitions for UI elements on Main Menu Scene.<BR>
@@ -34,7 +34,7 @@ Bug Fixes:<BR><BR>
  - Changed UI Canvas in Original Mode to "Screen Space-Camera" from "Screen Space-Overlay," This is needed to allow dynamic UI resolution changes based on screen resolution.<BR>
 <BR><BR>
 
-With this revision we have the foundation of the game nearly complete. The original 2D project has been moved to "Original Mode" in the 3DHD Rendering Pipeline.<BR>
+With this revision we have the foundation of the game nearly complete. The original 2D project branch (Rev 6.2) has been moved to the "Original Mode" in the 3DHD Rendering Pipeline.<BR>
 The game starts with a retrospective splash screen and original Startup Sound, UI elements then fade-in and the player is given options to choose from.<BR>
 <BR>
 Selecting Original Mode from the main menu will open a UI panel with additional options. Clicking play will start the loading screen for that mode before entering level 1.
