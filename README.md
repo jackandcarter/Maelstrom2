@@ -38,10 +38,17 @@ With this revision we have the foundation of the game nearly complete. The origi
 The game starts with a retrospective splash screen and original Startup Sound, UI elements then fade-in and the player is given options to choose from.<BR>
 <BR>
 Selecting Original Mode from the main menu will open a UI panel with additional options. Clicking play will start the loading screen for that mode before entering level 1.
-<BR>
+<BR><BR>
 Selecting Maelstrom2 Mode will load the M2StartScene, where the player is shown the "galaxy map" and additional features for upgrades and power ups before starting a level.<BR>
 
 Selecting of Multiplayer Mode is not implemented yet, but this will load a Lobby scene of some kind where different online play modes will become available.<BR><BR>
 
 
-This branch still needs alot of work and organization, all the files you see here are out of order but will be updated with current files soon.
+This branch includes the project folders for each play mode of the game. These can be used for reference. You can grab the current client builds from the links in the discord.<BR><BR>
+The Project Discord can be found here:
+
+<BR><BR>
+You'll find the most recent updates and progress on the discord, the github is here just for reference and archival of files. Any of the scripts or files created here can be used freely in non-commercial use.
+
+
+
