@@ -3,21 +3,45 @@
 
 # Maelstrom2
 
-This project is dedicated to the development of Maelstrom2, inspired by the classic MacOS game Maelstrom by Ambrosia Software. 
-Builds are planned for MacOS Intel and Apple Silicon, along with Windows and eventually iOS. The game is being developed using Unity Game Engine and will feature updated graphics, smoother gameplay mechanics, new features, and transitions with many new game elements inspired by the original game. This readme is here to share the progress made so far.
+Build Revision 7 Development
+<BR><BR>
+Changes:
+
+ - Moved to 3DHRDP Pipeline in Unity.<BR>
+ - Created MainMenu Scene and UI elements.<BR>
+ - Introduced Spash Screen and Startup Sound to Main Menu Scene.<BR>
+ - Created Fade-in Transitions for UI elements on Main Menu Scene.<BR>
+ - Introduced Three Play Modes, Includeing Maelstrom2, Original, and Multiplayer Modes.<BR>
+ - Introduced the In-Game Debug Console, which can be shown or hidden using the "/" key.<BR>
+ - Created Placeholder M2StartScene scene in Unity, this is the scene that loads when entering Maelstrom2 Mode.<BR>
+ - Started Development on Level1 Scene for Maelstrom2 Mode.<BR>
+ - Introduced Sphere-Shaped Spaces/Boundaries for Levels by devloping a "LevelZone" prefab with bounds wrapping of objects within the sphere.<BR>
+ - Created the Player Controller and Ship Camera scripts for Maelstrom2 Mode. These need further development.<BR>
+ - Added LeanTween and DOTween to the project allowing for more advanced animations and transition effects.<BR>
+ - Added PauseUI Panel to Original Mode and finished Pause Logic, using the "P" key to pause the game and open the PauseUI panel.<BR>
+ - Added buttons for returning to the Main Menu and Quitting the game in Original Mode on the PauseUI panel.<BR>
+ - Added placeholder Starfield Skybox in Maelstrom2 Mode.<BR>
+   <BR><BR><BR>
+
+
+
+Bug Fixes:<BR><BR>
+
+ - Fixed Scroll issue with the in-game debug console.<BR>
+ - Fixed a bug where wrapped objects get stuck between the buffer gap on screen edges. Updated Screen Wrap logic to more accurately detect position of objects.<BR>
+ - Fixed a Fade-in transition bug in the UI and Button elements that use TextMeshPro. We now use LeanTween in the project instead of using transparency methods.<BR>
+ - Fixed Player Controller in Original mode to now work in the 3D pipeline. Logic has been changed to calculate and move in a 3D space instead 2D axis.<BR>
+ - Changed UI Canvas in Original Mode to "Screen Space-Camera" from "Screen Space-Overlay," This is needed to allow dynamic UI resolution changes based on screen resolution.<BR>
+<BR><BR>
+
+With this revision we have the foundation of the game nearly complete. The original 2D project has been moved to "Original Mode" in the 3DHD Rendering Pipeline.<BR>
+The game starts with a retrospective splash screen and original Startup Sound, UI elements then fade-in and the player is given options to choose from.<BR>
 <BR>
+Selecting Original Mode from the main menu will open a UI panel with additional options. Clicking play will start the loading screen for that mode before entering level 1.
 <BR>
-There are a few things that still need to be finished, <BR>but I'm happy to say the project is near it's fully functioning developer build :)
-<br><BR>
-Asteroid animations and Spawn points are finished, Player ship movement, shield, and bullet/power up mechanics are complete. So far two of the new features have been implimented with a few more being added slowly as bugs are fixed. It's mostly sounds, some event animations, and Main menu that need work still.
-<BR>
-<BR>
-Revision 3.zip - This file has the pre-built prefabs, complete functioning rev3 scripts, sprites, and some early development files now completed in Rev6. It includes the readme and images for the project's setup in unity and how to use the included files. This is the first buildable project that was tested.
-<BR>
-Revision 3 Files are now being phased out into revision 6 pre developer build. Rev4 and Rev5 were for bug fixes and ui creation and didnt add any mechanic logic or finish any gameplay mechanics.
-<BR>
-<BR>
-Rev 6.zip - This file includes the biggest update to the game and has a huge list of added mechanics and logic, mostly UI and and gameplay related. Major bugs are fixed but still a few left to work out, they will all be fixed in the Developer Build. Currently These files can replace the Revision 3 game object setup in the project hierarchy and delete or add the new script game objects as needed. A MacOS build of Rev6 will be available shortly to show the progression of the development and it's updated graphics.
-<BR>
-<BR>
-The description of the files will be up soon to reflect the Revision 6 Scripts and new feature functionality.
+Selecting Maelstrom2 Mode will load the M2StartScene, where the player is shown the "galaxy map" and additional features for upgrades and power ups before starting a level.<BR>
+
+Selecting of Multiplayer Mode is not implemented yet, but this will load a Lobby scene of some kind where different online play modes will become available.<BR><BR>
+
+
+This branch still needs alot of work and organization, all the files you see here are out of order but will be updated with current files soon.
